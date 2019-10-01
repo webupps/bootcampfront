@@ -1,0 +1,3 @@
+Steps:
+1. sudo npm install -g parcel-bundler | parcel-bundler@1.12.3
+2. 
