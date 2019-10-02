@@ -1,9 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
+import Loadable from 'react-loadable';
+import { Layout } from './layout/layout';
 
-console.log('Hello from tsx!')
 
-ReactDOM.render(
-  <p>Hello</p>,
-  document.getElementById('root'),
-)
+class App extends React.Component {
+  render() {
+      return (
+        <Layout></Layout>
+      );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
