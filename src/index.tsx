@@ -15,7 +15,11 @@ import { Portfolio } from './layout/portfolio';
 import { Bootcamp } from './layout/bootcamp';
 import { Login } from './layout/login';
 import { RoutePath } from './helpers/types/enums/route-path';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux'; 
+import rootReducer from './store/rootreducer'; 
 
+const store = createStore(rootReducer);
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -34,4 +38,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
