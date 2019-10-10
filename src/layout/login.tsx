@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from '../layout/header/header'; 
-import { Signinform } from '../components/form/signinform';
+import { Mainlogin} from '../layout/main/mainlogin';
 import { Footer } from '../layout/footer/footer';
 export class Login extends React.Component {
 
@@ -9,8 +9,7 @@ export class Login extends React.Component {
     return (
       <div className="login layout container">
         <Header></Header>
-        <Signinform>
-        </Signinform>
+          <Mainlogin></Mainlogin>
         <Footer></Footer>
       </div>
     );
