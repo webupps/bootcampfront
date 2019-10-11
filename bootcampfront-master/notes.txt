@@ -1,0 +1,19 @@
+Steps:
+1. sudo npm install -g parcel-bundler | parcel-bundler@1.12.3
+npm cache clean --force
+rm -rf node_modules
+npm install
+Template:
+Class Component
+import React, { Component } from 'react';
+
+export class ComponentName extends React.Component {
+
+  render () {
+   
+    return (
+     
+    );
+  }
+}
+
