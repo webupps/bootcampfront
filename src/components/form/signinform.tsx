@@ -4,16 +4,36 @@ import axios from 'axios';
 import ErrorBoundary  from '../errorboundary/errorboundary';
 
 export class Signinform extends React.Component {
+  state = {
+    token: [],
+    username: '',
+    password: ''
+  };
+
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('token')
+      const token = JSON.parse(json)
+
+      if(token) {
+          this.setState(()=> ({ token }))
+      }
+  } catch (e) {}
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+      if(prevState.token.length !== this.state.token.length){
+        const json = JSON.stringify(this.state.token)
+        localStorage.setItem('token', json)
+    }
+  }
 
   /*postDataHandler = ()=> { 
     axios.post('http://3.94.126.80/user/login', );
   } */
   //https://jaredpalmer.com/formik/docs/guides/form-submission
 
-  state = {
-    username: '',
-    password: ''
-  }
+
   /*
   postDataHandler = () => {
     const post = {
@@ -22,9 +42,7 @@ export class Signinform extends React.Component {
   }
   */
   render () {
-   
     return (
-      
       <div className="signinform">
           <Formik 
           //initialValues= {{username: '', password: ''}}
@@ -47,9 +65,18 @@ export class Signinform extends React.Component {
             }
             if(!values.password){
               errors.password = 'Please enter a password';
+            /*const data= {
+              name: values.username,
+              pass: values.password
             }
-            return errors;
-          }}
+            axios.post('http://3.94.126.80/user/login?_format=hal_json', data).then((response)=> {
+              this.setState(()=>({
+                token: response.data.csrf_token
+              }))
+              setSubmitting{false}
+            }).catch((e)=>{ }) */
+            }
+          }
 
           
 
